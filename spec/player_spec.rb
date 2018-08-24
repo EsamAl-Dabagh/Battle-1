@@ -1,3 +1,5 @@
+require 'player'
+
 describe Player do
 
   let(:player01) { Player.new('Hagrid') }
