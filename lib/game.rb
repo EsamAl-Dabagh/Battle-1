@@ -10,7 +10,6 @@ class Game
 
   def attack(victim)
     victim.receive_damage
-    switch_turn
   end
 
   def switch_turn
