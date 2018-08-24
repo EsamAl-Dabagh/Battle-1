@@ -36,4 +36,15 @@ feature "attack player 2" do
     click_link "Attack"
     expect(page).to have_content("HP = 90")
   end
+
+  feature "switch turns" do 
+    # As two Players,
+    # So we can continue our game of Battle,
+    # We want to switch turns
+    scenario "switch to player 2's turn" do
+      sign_in_and_play
+      click_link "Attack"
+      expect(page).to have_content("It's Dumbledore's turn")
+    end
+  end
 end

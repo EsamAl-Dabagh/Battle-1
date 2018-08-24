@@ -1,1 +1,7 @@
 <h2><%= @game.player01.name %> attacked <%= @game.player02.name %> [ HP = <%= @game.player02.hit_points %> ]</h2>
+
+<% if @game.turn == @game.player01.name %>
+  <h4>It's <%= @game.player01.name %>'s turn!</h4>
+<% else %>
+  <h4>It's <%= @game.player02.name %>'s turn!</h4>
+<% end %>
