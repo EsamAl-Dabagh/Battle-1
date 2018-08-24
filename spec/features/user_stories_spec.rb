@@ -12,7 +12,7 @@ feature "see hit points" do
   # As Player 1,
   # So I can see how close I am to winning
   # I want to see Player 2's Hit Points
-  scenario "can see Player 2's Hit Points" do 
+  scenario "can see Player 2's Hit Points" do
     sign_in_and_play
     expect(page).to have_content("Dumbledore [ HP = 100 ]")
   end
@@ -48,7 +48,7 @@ feature "attack player 2" do
   feature "attack player 1" do
     # As Player 1,
     # So I can lose a game of Battle,
-    # I want Player 2 to attack me, and I want to get a confirmation  
+    # I want Player 2 to attack me, and I want to get a confirmation
     scenario "player 2 attacks player 1 and sees confirmation" do
       sign_in_and_play
       click_link "Attack"
@@ -58,7 +58,7 @@ feature "attack player 2" do
     end
   end
 
-  feature "switch turns" do 
+  feature "switch turns" do
     # As two Players,
     # So we can continue our game of Battle,
     # We want to switch turns
@@ -66,6 +66,17 @@ feature "attack player 2" do
       sign_in_and_play
       click_link "Attack"
       expect(page).to have_content("Now it's Dumbledore's turn")
+    end
+  end
+
+  feature "lose game" do
+    # As a Player,
+    # So I can Lose a game of Battle,
+    # I want to see a 'Lose' message if I reach 0HP first
+    scenario "first player to reach 0HP loses" do
+      player02_loses_100_HP
+      expect(page).to have_content("Dumbledore [ HP = 0 ]")
+      expect(page).to have_content("Game Over! Dumbledore loses")
     end
   end
 end

@@ -1,7 +1,6 @@
-
 <% if @game.turn == @game.player01 %>
   <h2><%= @game.player01.name %> attacked <%= @game.player02.name %> [ HP = <%= @game.player02.hit_points %> ]</h2>
-<% else %> 
+<% else %>
   <h2><%= @game.player02.name %> attacked <%= @game.player01.name %> [ HP = <%= @game.player01.hit_points %> ]</h2>
 <% end %>
 
@@ -11,5 +10,8 @@
   <h4>Now it's <%= @game.player01.name %>'s turn!</h4>
 <% end %>
 
+<% if @game.game_over %>
+  <h4> Game Over! Dumbledore loses </h4>
+<% end %>
 
-<a href="/switch"><button>Play on</button></a> 
+<a href="/switch"><button>Play on</button></a>

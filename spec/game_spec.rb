@@ -44,4 +44,13 @@ describe Game do
     end
   end
 
+  describe "#game_over?" do
+    let(:player03) { double("player03", :hit_points => 10) }
+    let(:player04) { double("player04", :hit_points => 0) }
+    let(:game2) { described_class.new(player03, player04) }
+
+    it "returns true if a player's score is 0" do
+      expect(game2.game_over).to eq true
+    end
+  end
 end

@@ -1,4 +1,4 @@
-class Game 
+class Game
 
   attr_reader :player01, :player02, :turn
 
@@ -18,6 +18,10 @@ class Game
     elsif @turn == @player02
       @turn = @player01
     end
+  end
+
+  def game_over
+    @player01.hit_points == 0 || @player02.hit_points == 0
   end
 
 end
